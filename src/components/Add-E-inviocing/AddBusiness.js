@@ -2,30 +2,27 @@ import React from 'react';
 import {
   Container,
   Button,
-  Modal,
-  Backdrop,
-  Fade,
+  Dialog,
   makeStyles,
-  Grid
+  DialogTitle,
+  Grid,
+  DialogContent,
+  DialogActions,
+  TextField
 } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3)
+  root: {
+    '& > *': {
+      margin: theme.spacing(3),
+      width: '25ch'
+    }
   }
 }));
 
 const Addbusiness = () => {
-  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const classes = useStyles();
 
   const handleOpen = () => {
     setOpen(true);
@@ -38,44 +35,73 @@ const Addbusiness = () => {
   return (
     <>
       <Container maxWidth="sm">
-        <h3>Welcome to ClearTax invoicing</h3>
+        <h3>Welcome to Tax invoicing</h3>
         <Button variant="contained" color="secondary" onClick={handleOpen}>
           Add Business/GST
         </Button>
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          className={classes.modal}
-          open={open}
+
+        <Dialog
+          fullWidth
+          maxWidth="md"
           onClose={handleClose}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500
-          }}
+          aria-labelledby="customized-dialog-title"
+          open={open}
         >
-          <Fade in={open}>
-            <div className={classes.paper}>
-              <h2 id="transition-modal-title">Add Business</h2>
-              <div id="transition-modal-description">
-                <Grid container spacing={6}>
-                  <Grid item xs={6} spacing={6}>
-                    <div>GSTIN</div>
-                    <input type="text" value="" />
-                    <div>NIC API Username </div>
-                    <input type="text" value="" />
-                  </Grid>
-                  <Grid item xs={6} spacing={6}>
-                    <div>Display Name</div>
-                    <input type="text" value="" />
-                    <div>NIC API Password </div>
-                    <input type="text" value="" />
+          <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+            <h2 id="transition-modal-title">Add Business</h2>
+          </DialogTitle>
+          <DialogContent dividers>
+            <div id="transition-modal-description">
+              <Grid container spacing={3}>
+                <Grid item xs={6} spacing={6}>
+                  <Grid item xs={6}>
+                    <form
+                      className={classes.root}
+                      noValidate
+                      autoComplete="off"
+                    >
+                      <TextField
+                        id="filled-basic"
+                        label="GSTIN"
+                        variant="filled"
+                      />
+                      <TextField
+                        id="filled-basic"
+                        label="NIC API Username"
+                        variant="filled"
+                      />
+                    </form>
                   </Grid>
                 </Grid>
-              </div>
+                <Grid item xs={6} spacing={6}>
+                  <Grid item xs={6}>
+                    <form
+                      className={classes.root}
+                      noValidate
+                      autoComplete="off"
+                    >
+                      <TextField
+                        id="filled-basic"
+                        label="Display Name"
+                        variant="filled"
+                      />
+                      <TextField
+                        id="filled-basic"
+                        label="NIC API Password"
+                        variant="filled"
+                      />
+                    </form>
+                  </Grid>
+                </Grid>
+              </Grid>
             </div>
-          </Fade>
-        </Modal>
+          </DialogContent>
+          <DialogActions>
+            <Button autoFocus onClick={handleClose} color="primary">
+              Add Business
+            </Button>
+          </DialogActions>
+        </Dialog>
       </Container>
     </>
   );
