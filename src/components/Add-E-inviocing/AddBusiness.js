@@ -118,90 +118,120 @@ const Addbusiness = () => {
           </DialogActions>
         </Dialog>
       </Container>
-      <Card className={classes.root}>
-        <CardActionArea>
-          <CardMedia>
-            <SvgIcon component={AddRoundedIcon} />
-          </CardMedia>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2" align="center">
-              Generate E-invoices
-            </Typography>
-            <Typography
-              variant="body2"
-              color="textSecondary"
-              component="p"
-              align="justify"
-            >
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-      <Card className={classes.root}>
-        <CardActionArea>
-          <CardMedia>
-            <SvgIcon component={VisibilityRoundedIcon} />
-          </CardMedia>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2" align="center">
-              View all E-invoices
-            </Typography>
-            <Typography
-              variant="body2"
-              color="textSecondary"
-              component="p"
-              align="justify"
-            >
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-      <Card className={classes.root}>
-        <CardActionArea>
-          <CardMedia>
-            <SvgIcon component={HistoryRoundedIcon} />
-          </CardMedia>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2" align="center">
-              Data Import history
-            </Typography>
-            <Typography
-              variant="body2"
-              color="textSecondary"
-              component="p"
-              align="justify"
-            >
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-      <Card className={classes.root}>
-        <CardActionArea>
-          <CardMedia>
-            <SvgIcon component={ShoppingCartRoundedIcon} />
-          </CardMedia>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2" align="center">
-              Purchased Invoices
-            </Typography>
-            <Typography
-              variant="body2"
-              color="textSecondary"
-              component="p"
-              align="justify"
-            >
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        className="m-4"
+      >
+        <Grid container item xs={12} spacing={3}>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <CardMedia>
+                <SvgIcon component={AddRoundedIcon} />
+              </CardMedia>
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="h2"
+                  align="center"
+                >
+                  Generate E-invoices
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                  align="justify"
+                >
+                  Lizards are a widespread group of squamate reptiles, with over
+                  6,000 species
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <CardMedia>
+                <SvgIcon component={VisibilityRoundedIcon} />
+              </CardMedia>
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="h2"
+                  align="center"
+                >
+                  View all E-invoices
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                  align="justify"
+                >
+                  Lizards are a widespread group of squamate reptiles, with over
+                  6,000 species
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <CardMedia>
+                <SvgIcon component={HistoryRoundedIcon} />
+              </CardMedia>
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="h2"
+                  align="center"
+                >
+                  Data Import history
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                  align="justify"
+                >
+                  Lizards are a widespread group of squamate reptiles, with over
+                  6,000 species
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <CardMedia>
+                <SvgIcon component={ShoppingCartRoundedIcon} />
+              </CardMedia>
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="h2"
+                  align="center"
+                >
+                  Purchased Invoices
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                  align="justify"
+                >
+                  Lizards are a widespread group of squamate reptiles, with over
+                  6,000 species
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+      </Grid>
     </>
   );
 };
