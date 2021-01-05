@@ -1,12 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 // eslint-disable-next-line object-curly-newline
-import {
-  makeStyles,
-  TextField,
-  Grid,
-  Typography,
-  Button
-} from '@material-ui/core/';
+import { makeStyles, TextField, Typography } from '@material-ui/core/';
 
 const useStyles = makeStyles((theme) => ({
   demo: {
@@ -17,43 +11,53 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const getBusinessList = (businesses) => {
+  return businesses.map((business) => (
+    <li className="list-group-item">{`${business.displayName} | ${business.GSTIN}`}</li>
+  ));
+};
+
 const BusinessSettings = () => {
   const classes = useStyles();
+  // eslint-disable-next-line no-unused-vars
+  const [businesses, setBusinesses] = useState([
+    {
+      displayName: 'Mumbai',
+      GSTIN: 456
+    },
+    {
+      displayName: 'Delhi',
+      GSTIN: 458
+    }
+  ]);
 
   return (
     <div className={classes.root}>
       <div>
-        <Grid item xs={12} md={6}>
+        <div>
           <Typography variant="h2" className={classes.title}>
-            Business Settings
+            Switch Business
           </Typography>
 
-          <form>
-            <div className="row m-2">
-              <div className="col">
-                <TextField
-                  id="filled-basic"
-                  label="Entity name"
-                  variant="filled"
-                  className="w-100"
-                />
-              </div>
-              <div className="col">
-                <TextField
-                  id="filled-basic"
-                  label="GST Number"
-                  variant="filled"
-                  className="w-100"
-                />
-              </div>
-              <div className="col">
-                <Button className="w-100 h-100" variant="contained">
-                  Add Business
-                </Button>
-              </div>
+          <div className="row m-2">
+            <div className="col">
+              <TextField
+                id="filled-basic"
+                label="Search Business"
+                variant="filled"
+                className="w-100"
+              />
             </div>
-          </form>
-        </Grid>
+            <div>
+              <ul className="list-group mt-2">
+                <li className="list-group-item bg-dark text-white">
+                  Business Name | GSTIN
+                </li>
+                {getBusinessList(businesses)}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
