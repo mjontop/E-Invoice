@@ -14,16 +14,16 @@ import {
   CardContent,
   CardActionArea,
   Typography,
-  SvgIcon,
-  Box
+  SvgIcon
 } from '@material-ui/core';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import VisibilityRoundedIcon from '@material-ui/icons/VisibilityRounded';
 import HistoryRoundedIcon from '@material-ui/icons/HistoryRounded';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
-import GridOnIcon from '@material-ui/icons/GridOn';
+// import GridOnIcon from '@material-ui/icons/GridOn';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import ReportIcon from '@material-ui/icons/Report';
+import Business from '../Business/Business';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,19 +57,11 @@ const Addbusiness = () => {
         <Button variant="contained" color="secondary" onClick={handleOpen}>
           Add Business/GST
         </Button>
-        <Box display="flex" flexDirection="row-reverse">
-          <Box p={1}>
-            <Button
-              variant="outlined"
-              color="secondary"
-              onClick={handleOpen}
-              p={2}
-            >
-              <SvgIcon component={GridOnIcon} />
-              <span className="px-2"> Switch Business</span>
-            </Button>
-          </Box>
-        </Box>
+        <div className="row">
+          <div className="offset-8 col-4">
+            <Business />
+          </div>
+        </div>
 
         <Dialog
           fullWidth

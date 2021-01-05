@@ -11,6 +11,7 @@ import ProductListView from 'src/views/product/ProductListView';
 import RegisterView from 'src/views/auth/RegisterView';
 import SettingsView from 'src/views/settings/SettingsView';
 import Addbusiness from './components/Add-E-inviocing/AddBusiness';
+import BusinessSettings from './components/Business/Business';
 
 const routes = [
   {
@@ -23,6 +24,7 @@ const routes = [
       { path: 'products', element: <ProductListView /> },
       { path: 'settings', element: <SettingsView /> },
       { path: 'addBusiness', element: <Addbusiness /> },
+      { path: 'business-settings', element: <BusinessSettings /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   },
