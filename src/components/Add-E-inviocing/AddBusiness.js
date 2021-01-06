@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   // Container,
   Button,
@@ -59,6 +60,11 @@ const Addbusiness = () => {
         </Button>
         <div className="row">
           <div className="offset-8 col-4">
+            <Link to="/app/invite-users" className="ml-4">
+              <Button variant="contained" color="primary">
+                <span className="px-1">Settings</span>
+              </Button>
+            </Link>
             <Business />
           </div>
         </div>

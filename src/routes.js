@@ -12,6 +12,7 @@ import RegisterView from 'src/views/auth/RegisterView';
 import SettingsView from 'src/views/settings/SettingsView';
 import Addbusiness from './components/Add-E-inviocing/AddBusiness';
 import BusinessSettings from './components/Business/Business';
+import InviteUsers from './components/InviteUsers/InviteUsers';
 
 const routes = [
   {
@@ -25,6 +26,7 @@ const routes = [
       { path: 'settings', element: <SettingsView /> },
       { path: 'addBusiness', element: <Addbusiness /> },
       { path: 'business-settings', element: <BusinessSettings /> },
+      { path: 'invite-users', element: <InviteUsers /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   },
