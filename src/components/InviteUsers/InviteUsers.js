@@ -18,7 +18,15 @@ import {
 import PropTypes from 'prop-types';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 
-const getTable = () => {
+const getTable = (users) => {
+  console.log(typeof users, users);
+  const allTRs = users.map((user) => (
+    <tr>
+      <td>{user.name}</td>
+      <td>{user.email}</td>
+      <td>{user.assinedRole}</td>
+    </tr>
+  ));
   return (
     <table className="table">
       <thead className="text-white bg-secondary">
@@ -29,26 +37,7 @@ const getTable = () => {
           <th scope="col">Edit Detailes</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
+      <tbody>{allTRs}</tbody>
     </table>
   );
 };
@@ -108,16 +97,28 @@ const TabsWrappedLabel = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState('one');
   const [open, setOpen] = React.useState(false);
-
+  const [allUsers, setAllUsers] = React.useState([]);
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    assinedRole: ''
+  });
   const handleOpen = () => {
     setOpen(true);
+    setFormData({ name: '', email: '', assinedRole: '' });
   };
 
   const handleClose = () => {
     setOpen(false);
+    setAllUsers([...allUsers, formData]);
   };
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const handleChangeForm = (name) => (event) => {
+    console.log('hey');
+    setFormData({ ...formData, [name]: event.target.value });
   };
 
   return (
@@ -162,11 +163,13 @@ const TabsWrappedLabel = () => {
                         id="filled-basic"
                         label="Name"
                         variant="filled"
+                        onChange={handleChangeForm('name')}
                       />
                       <TextField
                         id="filled-basic"
                         label="Email"
                         variant="filled"
+                        onChange={handleChangeForm('email')}
                       />
                     </form>
                   </Grid>
@@ -182,6 +185,7 @@ const TabsWrappedLabel = () => {
                         id="filled-basic"
                         label="Assined Role"
                         variant="filled"
+                        onChange={handleChangeForm('assinedRole')}
                       />
                     </form>
                   </Grid>
@@ -191,14 +195,14 @@ const TabsWrappedLabel = () => {
           </DialogContent>
           <DialogActions>
             <Button autoFocus onClick={handleClose} color="primary">
-              Add Business
+              Add Member
             </Button>
           </DialogActions>
         </Dialog>
       </div>
       <br />
       <TabPanel value={value} index="one">
-        {getTable()}
+        {getTable(allUsers)}
       </TabPanel>
       <TabPanel value={value} index="two">
         Item Two
