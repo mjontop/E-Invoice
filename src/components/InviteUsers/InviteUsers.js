@@ -19,7 +19,6 @@ import PropTypes from 'prop-types';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 
 const getTable = (users) => {
-  console.log(typeof users, users);
   const allTRs = users.map((user) => (
     <tr>
       <td>{user.name}</td>
@@ -77,19 +76,26 @@ const a11yProps = (index) => {
 };
 
 const useStyles = makeStyles((theme) => ({
-  rootOld: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3)
   },
-  root: {
-    '& > *': {
-      margin: theme.spacing(3),
-      width: '25ch'
-    },
-    media: {
-      height: 0,
-      paddingTop: '56.25%' // 16:9
-    }
+  gap: {
+    marginTop: theme.spacing(2)
+  },
+  gapSmall: {
+    marginTop: theme.spacing(1)
+  },
+  space: {
+    marginRight: theme.spacing(1)
+  },
+  dialog: {
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    margin: 0,
+    bottom: 0
   }
 }));
 
@@ -113,25 +119,36 @@ const TabsWrappedLabel = () => {
     setAllUsers([...allUsers, formData]);
   };
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    if (Object.values(newValue).reduce((a, b) => a + b, 0)) setValue(newValue);
   };
 
   const handleChangeForm = (name) => (event) => {
-    console.log('hey');
-    setFormData({ ...formData, [name]: event.target.value });
+    if (event.target.value !== '') {
+      setFormData({ ...formData, [name]: event.target.value });
+    }
   };
 
   return (
     <div className={classes.rootOld}>
       <AppBar position="static">
         <Tabs
-          TabIndicatorProps={{ style: { background: 'green' } }}
+          TabIndicatorProps={{ style: { background: 'white' } }}
           value={value}
           onChange={handleChange}
           aria-label="wrapped label tabs example"
         >
-          <Tab value="one" label="List of Members" {...a11yProps('one')} />
-          <Tab value="two" label="Rules" {...a11yProps('two')} />
+          <Tab
+            value="one"
+            label="List of Members"
+            {...a11yProps('one')}
+            className="mx-4"
+          />
+          <Tab
+            value="two"
+            label="Rules"
+            {...a11yProps('two')}
+            className="mx-4"
+          />
         </Tabs>
       </AppBar>
       <div style={{ float: 'right' }} className="m-2">
@@ -139,56 +156,50 @@ const TabsWrappedLabel = () => {
           <SvgIcon component={AddRoundedIcon} />
           <span className="px-1">Invite New users</span>
         </Button>
+      </div>
+      <div>
         <Dialog
-          fullWidth
-          maxWidth="md"
+          fullHeight
+          maxWidth="sm"
           onClose={handleClose}
           aria-labelledby="customized-dialog-title"
           open={open}
+          classes={{
+            paper: classes.dialog
+          }}
         >
           <DialogTitle id="customized-dialog-title" onClose={handleClose}>
             <h2 id="transition-modal-title">Invite New Members</h2>
           </DialogTitle>
           <DialogContent dividers>
             <div id="transition-modal-description">
-              <Grid container spacing={3}>
-                <Grid item xs={6} spacing={6}>
-                  <Grid item xs={6}>
-                    <form
-                      className={classes.root}
-                      noValidate
-                      autoComplete="off"
-                    >
-                      <TextField
-                        id="filled-basic"
-                        label="Name"
-                        variant="filled"
-                        onChange={handleChangeForm('name')}
-                      />
-                      <TextField
-                        id="filled-basic"
-                        label="Email"
-                        variant="filled"
-                        onChange={handleChangeForm('email')}
-                      />
-                    </form>
-                  </Grid>
+              <Grid container spacing={1}>
+                <Grid item xs={12}>
+                  <TextField
+                    id="filled-basic"
+                    label="Name"
+                    variant="filled"
+                    onChange={handleChangeForm('name')}
+                    className="w-100 my-2"
+                  />
                 </Grid>
-                <Grid item xs={6} spacing={6}>
-                  <Grid item xs={6}>
-                    <form
-                      className={classes.root}
-                      noValidate
-                      autoComplete="off"
-                    >
-                      <TextField
-                        id="filled-basic"
-                        label="Assined Role"
-                        variant="filled"
-                        onChange={handleChangeForm('assinedRole')}
-                      />
-                    </form>
-                  </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    id="filled-basic"
+                    label="Email"
+                    variant="filled"
+                    onChange={handleChangeForm('email')}
+                    className="w-100 my-2"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    id="filled-basic"
+                    label="Assined Role"
+                    variant="filled"
+                    onChange={handleChangeForm('assinedRole')}
+                    className="w-100 my-2"
+                  />
                 </Grid>
               </Grid>
             </div>
