@@ -13,6 +13,7 @@ import SettingsView from 'src/views/settings/SettingsView';
 import Addbusiness from './components/Add-E-inviocing/AddBusiness';
 import BusinessSettings from './components/Business/Business';
 import InviteUsers from './components/InviteUsers/InviteUsers';
+import GenerateIRN from './components/GenerateIRN/GenerateIRN';
 
 const routes = [
   {
@@ -35,6 +36,7 @@ const routes = [
     element: <MainLayout />,
     children: [
       { path: 'login', element: <LoginView /> },
+      { path: 'generateIRN', element: <GenerateIRN /> },
       { path: 'register', element: <RegisterView /> },
       { path: '404', element: <NotFoundView /> },
       { path: '/', element: <Navigate to="/app/dashboard" /> },
