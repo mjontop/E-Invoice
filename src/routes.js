@@ -21,7 +21,14 @@ const routes = [
     path: 'app',
     element: <DashboardLayout />,
     children: [
-      { path: 'account', element: <AccountView /> },
+      {
+        path: 'account',
+        element: !localStorage.getItem('user') ? (
+          <Navigate to="/404" />
+        ) : (
+          <AccountView />
+        )
+      },
       { path: 'customers', element: <CustomerListView /> },
       { path: 'dashboard', element: <DashboardView /> },
       { path: 'products', element: <ProductListView /> },
