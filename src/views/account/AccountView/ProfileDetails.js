@@ -36,9 +36,9 @@ const ProfileDetails = ({ className, ...rest }) => {
   const classes = useStyles();
   const userlocal = JSON.parse(localStorage.getItem('user'));
   const [values, setValues] = useState({
-    firstName: userlocal.givenName,
-    lastName: userlocal.familyName,
-    email: userlocal.email,
+    firstName: userlocal ? userlocal.givenName : '',
+    lastName: userlocal ? userlocal.familyName : '',
+    email: userlocal ? userlocal.email : '',
     phone: '',
     state: 'Alabama',
     country: 'USA'

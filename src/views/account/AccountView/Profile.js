@@ -17,11 +17,11 @@ import {
 const getUser = () => {
   const userlocal = JSON.parse(localStorage.getItem('user'));
   const defaultUser = {
-    avatar: userlocal.imageUrl,
+    avatar: userlocal ? userlocal.imageUrl : '',
     city: 'Los Angeles',
     country: 'USA',
     jobTitle: 'Senior Developer',
-    name: userlocal.name,
+    name: userlocal ? userlocal.name : '',
     timezone: 'GTM-7'
   };
   return {
