@@ -10,11 +10,10 @@ import NotFoundView from 'src/views/errors/NotFoundView';
 import ProductListView from 'src/views/product/ProductListView';
 import RegisterView from 'src/views/auth/RegisterView';
 import SettingsView from 'src/views/settings/SettingsView';
-import Addbusiness from './components/Add-E-inviocing/AddBusiness';
+import Addbusiness from './components/Add E-Invoicing/Addbusiness';
 import BusinessSettings from './components/Business/Business';
 import InviteUsers from './components/InviteUsers/InviteUsers';
 import GenerateIRN from './components/GenerateIRN/GenerateIRN';
-// import { Index } from './components/E-Invoicing/Index';
 
 const routes = [
   {
@@ -46,7 +45,6 @@ const routes = [
       { path: 'login', element: <LoginView /> },
       { path: 'generateIRN', element: <GenerateIRN /> },
       { path: 'register', element: <RegisterView /> },
-      // { path: 'einvoicing', element: <Index /> },
       { path: '404', element: <NotFoundView /> },
       { path: '/', element: <Navigate to="/app/dashboard" /> },
       { path: '*', element: <Navigate to="/404" /> }

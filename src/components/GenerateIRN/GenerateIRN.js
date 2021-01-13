@@ -87,23 +87,26 @@ const GenerateIRN = () => {
       </div>
       <div className="container mt-4 ">
         <div className="row">
-          <div className="col-12 col-md-7">
+          <div className="col-12 col-md-6">
             <b>Select invoice to generate IRN </b>
             <span>in order to take any action</span>
           </div>
           <div className="float-left col">
-            <Button className="mx-1" color="primary">
+            <Button className="mx-1" variant="contained">
               Download
             </Button>
             <Button className="mx-1" variant="contained" color="primary">
               Print
+            </Button>
+            <Button className="mx-1 bg-success text-white" variant="contained">
+              Generate IRN
             </Button>
             <Button
               className="mx-1 bg-danger"
               variant="contained"
               color="secondary"
             >
-              Generate IRN
+              Cancel IRN
             </Button>
           </div>
         </div>
