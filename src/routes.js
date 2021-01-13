@@ -14,6 +14,10 @@ import Addbusiness from './components/Add E-Invoicing/Addbusiness';
 import BusinessSettings from './components/Business/Business';
 import InviteUsers from './components/InviteUsers/InviteUsers';
 import GenerateIRN from './components/GenerateIRN/GenerateIRN';
+import Import from './components/Add E-Invoicing/Import';
+import Mapping from './components/Add E-Invoicing/Mapping';
+// import Mapping from './components/Add E-Invoicing/Mapping';
+// import MappingFields from './components/Add E-Invoicing/MappingFields';
 
 const routes = [
   {
@@ -45,6 +49,8 @@ const routes = [
       { path: 'login', element: <LoginView /> },
       { path: 'generateIRN', element: <GenerateIRN /> },
       { path: 'register', element: <RegisterView /> },
+      { path: 'import', element: <Import /> },
+      { path: 'mapping', element: <Mapping /> },
       { path: '404', element: <NotFoundView /> },
       { path: '/', element: <Navigate to="/app/dashboard" /> },
       { path: '*', element: <Navigate to="/404" /> }

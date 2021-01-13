@@ -12,16 +12,14 @@ import {
   makeStyles
 } from '@material-ui/core';
 
-import Item from 'src/components/custom/E-Invoicing/Item';
-import NavTab from 'src/components/custom/E-Invoicing/NavTab';
-import Nav from 'src/components/custom/Nav';
+import Item from './Item';
+import NavTab from './NavTab';
 import IconButton from '@material-ui/core/IconButton';
 import FolderIcon from '@material-ui/icons/Folder';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import CloseIcon from '@material-ui/icons/Close';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -101,7 +99,9 @@ const Import = (props) => {
                 }}
                 className={classes.spaceLarge}
               >
-                <Typography className={classes.space} variant="h5">| Cleartax </Typography>
+                <Typography className={classes.space} variant="h5">
+                  | Cleartax{' '}
+                </Typography>
                 <Typography variant="h5">| GSTIN: 27AA</Typography>
               </div>
               <div>
