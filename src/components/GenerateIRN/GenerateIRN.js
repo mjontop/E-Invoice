@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Button,
-  //   SvgIcon,
+  SvgIcon,
   //   Tab,
   //   Tabs,
   //   AppBar,
@@ -16,6 +16,8 @@ import {
   //   Dialog,
   //   DialogActions
 } from '@material-ui/core';
+import CreateIcon from '@material-ui/icons/Create';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles((theme) => ({
   bg_grey: {
@@ -126,6 +128,8 @@ const GenerateIRN = () => {
               <th scope="col">Customer Name</th>
               <th scope="col">Custumer GSTIN</th>
               <th scope="col">Taxable Amount</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -141,6 +145,16 @@ const GenerateIRN = () => {
               <td>@mdo</td>
               <td>Otto</td>
               <td>@mdo</td>
+              <td>
+                <SvgIcon>
+                  <CreateIcon />
+                </SvgIcon>
+              </td>
+              <td>
+                <SvgIcon>
+                  <DeleteIcon />
+                </SvgIcon>
+              </td>
             </tr>
             <tr>
               <th scope="row">
@@ -154,6 +168,16 @@ const GenerateIRN = () => {
               <td>@fat</td>
               <td>Jacob</td>
               <td>Thornton</td>
+              <td>
+                <SvgIcon>
+                  <CreateIcon />
+                </SvgIcon>
+              </td>
+              <td>
+                <SvgIcon>
+                  <DeleteIcon />
+                </SvgIcon>
+              </td>
             </tr>
             <tr>
               <th scope="row">
@@ -167,6 +191,16 @@ const GenerateIRN = () => {
               <td>@twitter</td>
               <td>Larry</td>
               <td>the Bird</td>
+              <td>
+                <SvgIcon>
+                  <CreateIcon />
+                </SvgIcon>
+              </td>
+              <td>
+                <SvgIcon>
+                  <DeleteIcon />
+                </SvgIcon>
+              </td>
             </tr>
             <tr>
               <th scope="row">
@@ -180,6 +214,16 @@ const GenerateIRN = () => {
               <td>@mdo</td>
               <td>Otto</td>
               <td>@mdo</td>
+              <td>
+                <SvgIcon>
+                  <CreateIcon />
+                </SvgIcon>
+              </td>
+              <td>
+                <SvgIcon>
+                  <DeleteIcon />
+                </SvgIcon>
+              </td>
             </tr>
             <tr>
               <th scope="row">
@@ -193,6 +237,16 @@ const GenerateIRN = () => {
               <td>@mdo</td>
               <td>Otto</td>
               <td>@mdo</td>
+              <td>
+                <SvgIcon>
+                  <CreateIcon />
+                </SvgIcon>
+              </td>
+              <td>
+                <SvgIcon>
+                  <DeleteIcon />
+                </SvgIcon>
+              </td>
             </tr>
             <tr>
               <th scope="row">
@@ -206,6 +260,17 @@ const GenerateIRN = () => {
               <td>@mdo</td>
               <td>Otto</td>
               <td>@mdo</td>
+              <td>
+                <SvgIcon>
+                  <CreateIcon />
+                </SvgIcon>
+              </td>
+
+              <td>
+                <SvgIcon>
+                  <DeleteIcon />
+                </SvgIcon>
+              </td>
             </tr>
             <tr>
               <th scope="row">
@@ -219,6 +284,16 @@ const GenerateIRN = () => {
               <td>@mdo</td>
               <td>Otto</td>
               <td>@mdo</td>
+              <td>
+                <SvgIcon>
+                  <CreateIcon />
+                </SvgIcon>
+              </td>
+              <td>
+                <SvgIcon>
+                  <DeleteIcon />
+                </SvgIcon>
+              </td>
             </tr>
             <tr>
               <th scope="row">
@@ -232,6 +307,16 @@ const GenerateIRN = () => {
               <td>@mdo</td>
               <td>Otto</td>
               <td>@mdo</td>
+              <td>
+                <SvgIcon>
+                  <CreateIcon />
+                </SvgIcon>
+              </td>
+              <td>
+                <SvgIcon>
+                  <DeleteIcon />
+                </SvgIcon>
+              </td>
             </tr>
           </tbody>
         </table>
